@@ -1,12 +1,12 @@
 import requests
 import csv
 
-TOKEN = "Bearer TOKEN"
-TABLE_ID = 302876685
+TOKEN = "Bearer TOKEN" #UPDATE the TOKEN here
+TABLE_ID = 302876685 #UPDATE the table ID here
 URL = "https://api.pipefy.com/graphql"
 
 headers = {
-    "Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJQaXBlZnkiLCJpYXQiOjE3NDkzMDgzNjEsImp0aSI6IjZjMTQ3MDZhLTZkNDktNGMyYy1hMDY1LTI1MjIyYjM1YTY0NCIsInN1YiI6MzAxMDk5MTk5LCJ1c2VyIjp7ImlkIjozMDEwOTkxOTksImVtYWlsIjoibHVpZ2lAbW90dHUuY29tLmJyIn19.fKgdNk2_VwXCGLD4AKlplBrzyFjh8ldCcNxnC8LyEvLGWui9LQEoVf8IVAwpXXyf0SxQ4EKV8XHiHJVW4DYTiA",
+    "Authorization": "Bearer TOKEN",
     "Content-Type": "application/json"
 }
 
