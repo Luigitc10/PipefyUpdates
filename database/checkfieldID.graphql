@@ -1,0 +1,10 @@
+{
+  table(id: 302876685) {
+    name
+    table_fields {
+      id
+      label
+      type
+    }
+  }
+}
