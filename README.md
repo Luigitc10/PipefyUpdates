@@ -1,1 +1,1 @@
-Repository to save my scripts to update Procurement Pipefys
+Repository to save our scripts to update Procurement Pipefys
