@@ -4,9 +4,9 @@ import time
 
 # === CONFIGURAÇÕES ===
 CSV_PATH = r"C:\Users\Luigi\Downloads\atualizacaomodeloeskuid.csv" # WHERE THE CSV WITH THE VALUES TO UPDATED IS STORED
-FIELD_ID_PRECO_FOB = "copy_of_pre_o_atual_fob"  # USE THE CARD ID TO BE UPDATED
-API_TOKEN = "TOKEN" # UPDATE HERE WITH YOUR TOKEN
-API_URL = "https://api.pipefy.com/graphql" PIPEFY API URL
+FIELD_ID_PRECO_FOB = "tipo_de_fornecimento"  # USE THE CARD ID TO BE UPDATED
+API_TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJQaXBlZnkiLCJpYXQiOjE3NTA5NDI2NDAsImp0aSI6ImNkZmIyYjlkLTQ2ZTgtNGE0ZC1hZDhiLWIzMmNkYzZlOGIwNCIsInN1YiI6MzAxMDk5MTk5LCJ1c2VyIjp7ImlkIjozMDEwOTkxOTksImVtYWlsIjoibHVpZ2lAbW90dHUuY29tLmJyIn19.Xl54_3mGFqIiIcib2UG8r22nzCzOZBfeLyvV1JV5AIfNjfa1_JAfI-9bNbAdWxL4gpMZdy8Uh9IpcICzxGGo5A" # UPDATE HERE WITH YOUR TOKEN
+API_URL = "https://api.pipefy.com/graphql" # PIPEFY API URL
 
 headers = {
     "Authorization": f"Bearer {API_TOKEN}",
