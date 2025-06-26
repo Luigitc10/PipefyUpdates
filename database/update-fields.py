@@ -1,25 +1,28 @@
 import csv
 import requests
+import os
+from dotenv import load_dotenv
 
 # === CONFIGURAÇÕES ===
-CSV_PATH = r"C:\Users\Luigi\Downloads\atualizacaomodeloeskuid.csv" # PATH TO THE CSV FILE WITH THE VALUES TO UPDATE 
-PIPEFY_TOKEN = "TOKEN"  # INSERT YOUR TOKEN
-FIELD_ID = "tipo_de_compra"      # FIELD ID TO BE UPDATED
+load_dotenv()
+CSV_PATH = r"C:\Users\Luigi\Downloads\atualizacaomodeloeskuid.csv"
+API_TOKEN = os.getenv("PIPEFY_API_TOKEN")
+FIELD_ID = "ncm"
 
-# === FUNÇÃO DE ATUALIZAÇÃO COM updateFieldsValues ===
-def update_field_value(card_id, tipo_valor):
+# === FUNÇÃO PARA ATUALIZAR UM CAMPO ===
+def update_field_value(card_id, field_value):
     url = "https://api.pipefy.com/graphql"
     headers = {
-        "Authorization": f"Bearer {PIPEFY_TOKEN}",
+        "Authorization": f"Bearer {API_TOKEN}",
         "Content-Type": "application/json"
     }
 
     mutation = f"""
     mutation {{
       updateFieldsValues(input: {{
-        nodeId: {card_id},
+        nodeId: "{card_id}",
         values: [
-          {{ fieldId: "{FIELD_ID}", value: "{tipo_valor}" }}
+          {{ fieldId: "{FIELD_ID}", value: "{field_value}" }}
         ]
       }}) {{
         success
@@ -46,15 +49,15 @@ def update_field_value(card_id, tipo_valor):
     else:
         print(f"✅ Atualizado com sucesso: ID {card_id}")
 
-# === EXECUÇÃO ===
+# === EXECUÇÃO PRINCIPAL ===
 with open(CSV_PATH, newline='', encoding='latin1') as f:
-    reader = csv.DictReader(f, delimiter=';')
+    reader = csv.DictReader(f, delimiter=';')  # <- Aqui é o ponto crítico
     print(f"Cabeçalhos encontrados: {reader.fieldnames}")
 
     for row in reader:
         try:
-            card_id = row["Código"].strip()
-            tipo = row["tipo"].strip()
-            update_field_value(card_id, tipo)
+            card_id = row["card_id"].strip()
+            field_value = row["ncm"].strip()
+            update_field_value(card_id, field_value)
         except Exception as e:
             print(f"⚠️ Erro inesperado no registro: {row} -> {e}")
