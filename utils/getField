@@ -1,0 +1,13 @@
+{
+  pipe(id: 304836873) {
+    name
+    phases {
+      name
+      fields {
+        id
+        label
+        type
+      }
+    }
+  }
+}
